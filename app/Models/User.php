@@ -19,5 +19,8 @@ class User extends Authenticatable implements MustVerifyEmailContract
         'password', 'remember_token',
     ];
 
-    protected $beforAvatarUrl;
+    public function topics()
+    {
+        return $this->hasMany(Topic::class);
+    }
 }
