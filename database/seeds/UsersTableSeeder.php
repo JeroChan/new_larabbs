@@ -34,8 +34,9 @@ class UsersTableSeeder extends Seeder
         \App\Models\User::insert($user_array);
 
         $user = \App\Models\User::find(1);
-        $user->name = 'Summer';
-        $user->email = 'summer@example.com';
+        $user->name = 'Jero';
+        $user->email = 'it5@unitek-products.com';
+        $user->password = bcrypt('123456');
         $user->avatar = 'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/ZqM7iaP4CR.png';
         $user->save();
     }
