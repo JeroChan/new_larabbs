@@ -17,7 +17,8 @@ class ReplyObserver
 
     public function created(Reply $reply)
     {
-        $reply->topic->reply_count = $reply->topic->replies->count();
+        $reply->topic->updateReplyCount();
+
         $reply->topic->save();
 
         $reply->topic->user->notify(new TopicReplied($reply));
@@ -26,5 +27,10 @@ class ReplyObserver
     public function updating(Reply $reply)
     {
 
+    }
+
+    public function deleted(Reply $reply)
+    {
+        $reply->topic->updateReplyCount();
     }
 }
