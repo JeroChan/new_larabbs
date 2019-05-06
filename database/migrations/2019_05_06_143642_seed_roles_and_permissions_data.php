@@ -10,15 +10,10 @@ use Spatie\Permission\Models\Permission;
 
 class SeedRolesAndPermissionsData extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         // 需清除缓存，否则会报错
-        app(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
+        app(Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
 
         // 先创建权限
         Permission::create(['name' => 'manage_contents']);
@@ -36,15 +31,10 @@ class SeedRolesAndPermissionsData extends Migration
         $maintainer->givePermissionTo('manage_contents');
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         // 需清除缓存，否则会报错
-        app(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
+        app(Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
 
         // 清空所有数据表数据
         $tableNames = config('permission.table_names');
