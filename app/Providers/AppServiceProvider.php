@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\VideoController;
 use Carbon\Carbon;
+use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

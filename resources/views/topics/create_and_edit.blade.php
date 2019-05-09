@@ -23,7 +23,7 @@
                             {{ method_field('PUT') }}
                     @else
                         <form action="{{ route('topics.store') }}" method="POST" accept-charset="UTF-8">
-                            @endif
+                    @endif
                             {{ csrf_field() }}
 
                             @include('shared._error')
