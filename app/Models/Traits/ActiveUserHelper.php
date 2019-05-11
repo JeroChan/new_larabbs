@@ -37,7 +37,7 @@ trait ActiveUserHelper
         $this->cacheActiveUsers($active_users);
     }
 
-    public function calculateActiveUsers()
+    private function calculateActiveUsers()
     {
         $this->calculateTopicScore();
         $this->calculateReplyScore();
@@ -65,7 +65,7 @@ trait ActiveUserHelper
 
     }
 
-    public function calculateTopicScore()
+    private function calculateTopicScore()
     {
         $topic_users = Topic::select(DB::raw('user_id, count(*) as topic_count'))
             ->where('created_at', '>=', Carbon::now()->subDays($this->pass_days))
@@ -77,7 +77,7 @@ trait ActiveUserHelper
         }
     }
 
-    public function calculateReplyScore()
+    private function calculateReplyScore()
     {
         $reply_users = Reply::select(DB::raw('user_id, count(*) as reply_count'))
             ->where('created_at', '>=', Carbon::now()->subDays($this->pass_days))
@@ -94,7 +94,7 @@ trait ActiveUserHelper
         }
     }
 
-    public function cacheActiveUsers($active_users)
+    private function cacheActiveUsers($active_users)
     {
         Cache::put($this->cache_key, $active_users, $this->cache_expire_in_minutes);
     }
