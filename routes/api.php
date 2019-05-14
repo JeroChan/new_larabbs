@@ -22,12 +22,14 @@ $api->version('v1', [
     $api->group([
         'middleware' => 'api.throttle',
         'limit' => config('api.rate_limits.sign.limit'),
-        'expires' => env('api.rate_limits.sign.expires'),
+        'expires' => config('api.rate_limits.sign.expires'),
     ], function ($api) {
         $api->post('verificationCodes', 'VerificationCodesController@store')
             ->name('api.verificationCodes.store');
         $api->post('users', 'UsersController@store')
             ->name('api.users.store');
+        $api->post('captchas', 'CaptchasController@store')
+            ->name('api.captchas.store');
     });
 
 });
