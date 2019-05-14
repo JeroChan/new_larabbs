@@ -30,6 +30,8 @@ $api->version('v1', [
             ->name('api.users.store');
         $api->post('captchas', 'CaptchasController@store')
             ->name('api.captchas.store');
+        $api->post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore')
+            ->name('api.social.authorizations.store');
     });
 
 });
