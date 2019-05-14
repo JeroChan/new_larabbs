@@ -21,8 +21,8 @@ $api->version('v1', [
 
     $api->group([
         'middleware' => 'api.throttle',
-        'limit' => 1,
-        'expires' => 1,
+        'limit' => config('api.rate_limits.sign.limit'),
+        'expires' => env('api.rate_limits.sign.expires'),
     ], function ($api) {
         $api->post('verificationCodes', 'VerificationCodesController@store')
             ->name('api.verificationCodes.store');
