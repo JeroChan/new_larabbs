@@ -17,6 +17,7 @@ $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api',
+    'middleware' => 'serializer:array',
 ], function ($api) {
 
     $api->group([
@@ -32,12 +33,20 @@ $api->version('v1', [
             ->name('api.captchas.store');
         $api->post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore')
             ->name('api.social.authorizations.store');
+        // 登录
+        $api->post('authorizations', 'AuthorizationsController@store')
+            ->name('api.authorizations.store');
         // 刷新token
         $api->put('authorizations/current', 'AuthorizationsController@update')
             ->name('api.authorizations.update');
         // 删除token
         $api->delete('authorizations/current', 'AuthorizationsController@destroy')
             ->name('api.authorizations.destroy');
+
+        $api->group(['middleware' => 'api.auth'], function ($api) {
+            $api->get('user', 'UsersController@me')
+                ->name('api.user.show');
+        });
     });
 
 });
