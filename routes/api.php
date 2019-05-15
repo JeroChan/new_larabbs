@@ -52,6 +52,8 @@ $api->version('v1', [
                 ->name('api.images.store');
             $api->patch('user', 'UsersController@update')
                 ->name('api.user.update');
+            $api->post('topics', 'TopicsController@store')
+                ->name('api.topics.store');
         });
     });
 
