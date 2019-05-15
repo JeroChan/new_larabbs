@@ -8,8 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements MustVerifyEmailContract
+#MustVerifyEmailContract
+
+class User extends Authenticatable implements JWTSubject
 {
     use Traits\LastActivedAtHelper;
 
@@ -77,6 +80,16 @@ class User extends Authenticatable implements MustVerifyEmailContract
             $path = config('app.url') . "/uploads/images/avatars/$path";
         }
         $this->attributes['avatar'] = $path;
+    }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 
 

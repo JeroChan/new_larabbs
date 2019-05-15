@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\Api\SocialAuthorizationRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class AuthorizationsController extends Controller
@@ -58,5 +59,17 @@ class AuthorizationsController extends Controller
         }
 
         return $this->response->array(['token' => $user->id]);
+    }
+
+    public function update()
+    {
+        $token = Auth::guard('api')->refresh();
+        return $this->respondWithToken($token);
+    }
+
+    public function destroy()
+    {
+        Auth::guard('api')->logout();
+        return $this->response->noContent();
     }
 }
