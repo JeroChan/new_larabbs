@@ -16,7 +16,7 @@ class ImageUploadHandler
 
         $extension = strtolower($file->getClientOriginalExtension()) ?: 'png';
 
-        $filename = $file_prefix . '_' . time() . '_' . str_random(10) . '_' . $extension;
+        $filename = $file_prefix . '_' . time() . '_' . str_random(10) . '.' . $extension;
 
         if (!in_array($extension, $this->allowed_ext)) {
             return false;
