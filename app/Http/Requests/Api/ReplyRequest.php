@@ -6,8 +6,13 @@ class ReplyRequest extends FormRequest
 {
     public function rules()
     {
-        return [
-            'content' => 'required|min:2',
-        ];
+        switch ($this->method()) {
+            case 'POST':
+                return [
+                    'content' => 'required|min:2',
+                ];
+                break;
+        }
+
     }
 }
