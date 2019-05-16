@@ -17,7 +17,7 @@ $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api',
-    'middleware' => 'serializer:array',
+    'middleware' => ['serializer:array', 'bindings'],
 ], function ($api) {
 
     $api->group([
@@ -44,6 +44,14 @@ $api->version('v1', [
             ->name('api.authorizations.destroy');
         $api->get('categories', 'CategoriesController@index')
             ->name('api.categories.index');
+        $api->get('topics', 'TopicsController@index')
+            ->name('api.topics.index');
+        $api->get('users/{user}/topics', 'TopicsController@userIndex')
+            ->name('api.users.topics.index');
+        $api->get('topics/{topic}', 'TopicsController@show')
+            ->name('api.topics.show');
+        $api->post('topics/{topic}/replies', 'RepliesController@store')
+            ->name('api.topics.replies.store');
 
         $api->group(['middleware' => 'api.auth'], function ($api) {
             $api->get('user', 'UsersController@me')
@@ -54,6 +62,10 @@ $api->version('v1', [
                 ->name('api.user.update');
             $api->post('topics', 'TopicsController@store')
                 ->name('api.topics.store');
+            $api->patch('topics/{topic}', 'TopicsController@update')
+                ->name('api.topics.update');
+            $api->delete('topics/{topic}', 'TopicsController@destroy')
+                ->name('api.topics.destroy');
         });
     });
 
