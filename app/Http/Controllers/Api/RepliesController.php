@@ -12,9 +12,12 @@ class RepliesController extends Controller
 {
     public function store(ReplyRequest $request, Topic $topic, Reply $reply)
     {
-        $reply->content = $reply->content;
+        $reply->content = $request->content;
         $reply->topic_id = $topic->id;
         $reply->user_id = $this->user()->id;
+
+        /*return $this->response->array(['reply' => $reply]);*/
+
         $reply->save();
 
         return $this->response->item($reply, new ReplyTransformer())
