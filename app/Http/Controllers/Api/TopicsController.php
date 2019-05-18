@@ -12,6 +12,9 @@ class TopicsController extends Controller
 {
     public function index(Request $request, Topic $topic)
     {
+
+        return $this->errorResponse(404);
+
         $query = $topic->query();
 
         if ($categoryId = $request->category_id) {
