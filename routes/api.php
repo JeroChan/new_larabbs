@@ -80,6 +80,8 @@ $api->version('v1', [
                 ->name('api.topics.update');
             $api->delete('topics/{topic}', 'TopicsController@destroy')
                 ->name('api.topics.destroy');
+            $api->get('user/permission', 'PermissionsController@index')
+                ->name('api.user.permission');
         });
     });
 
