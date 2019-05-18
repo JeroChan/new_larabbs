@@ -66,6 +66,8 @@ $api->version('v1', [
             ->name('api.user.notifications.stats');
         $api->patch('user/read/notifications', 'NotificationsController@read')
             ->name('api.user.notifications.read');
+        $api->get('links', 'LinksController@index')
+            ->name('api.links.index');
 
         $api->group(['middleware' => 'api.auth'], function ($api) {
             $api->get('user', 'UsersController@me')
