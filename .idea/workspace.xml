@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5dda5e50-5991-4e69-881d-4b93e9c09872" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Feature/TopicApiTest.php" afterPath="$PROJECT_DIR$/tests/Feature/TopicApiTest.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -82,8 +83,8 @@
       <file leaf-file-name="TopicApiTest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/Feature/TopicApiTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+            <state relative-caret-position="370">
+              <caret line="93" column="7" lean-forward="false" selection-start-line="87" selection-start-column="4" selection-end-line="93" selection-end-column="7" />
               <folding>
                 <element signature="e#33#54#0#PHP" expanded="true" />
               </folding>
@@ -388,7 +389,13 @@
             <path>
               <item name="new_larabbs" type="b2602c69:ProjectViewProjectNode" />
               <item name="new_larabbs" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="routes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="new_larabbs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new_larabbs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Feature" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -457,12 +464,12 @@
       <workItem from="1557976406094" duration="4162000" />
       <workItem from="1557986992252" duration="14185000" />
       <workItem from="1558061852000" duration="4481000" />
-      <workItem from="1558142516300" duration="11684000" />
+      <workItem from="1558142516300" duration="11878000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209500000" />
+    <option name="totallyTimeSpent" value="209694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="98" width="1456" height="876" extended-state="6" />
@@ -932,8 +939,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Feature/TopicApiTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+        <state relative-caret-position="370">
+          <caret line="93" column="7" lean-forward="false" selection-start-line="87" selection-start-column="4" selection-end-line="93" selection-end-column="7" />
           <folding>
             <element signature="e#33#54#0#PHP" expanded="true" />
           </folding>
