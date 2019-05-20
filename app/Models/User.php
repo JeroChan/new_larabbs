@@ -7,6 +7,7 @@ use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
@@ -19,6 +20,8 @@ class User extends Authenticatable implements JWTSubject
     use Traits\ActiveUserHelper;
 
     use HasRoles;
+
+    use HasApiTokens;
 
     use MustVerifyEmailTrait;
 
@@ -97,5 +100,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasOne(Image::class);
     }
 
+    public function findForPassport($username)
+    {
+        filter_var($username, FILTER_VALIDATE_EMAIL) ? $credentials['email'] = $username : $credentials['phone'] = $username;
+
+        return self::where($credentials)->first();
+    }
 
 }
